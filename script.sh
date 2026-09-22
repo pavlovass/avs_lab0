@@ -175,4 +175,4 @@ mv ~/script.sh ~/lab0
 git add script.sh
 git status
 git commit -m 'Добавление shell-скрипта'
-git origin master
+git push origin master
