@@ -2,7 +2,7 @@
 
 echo "1.1 Инициализируем локальный репозиторий в lab0"
 
-сd ~
+cd ~
 mkdir -p ~/lab0
 cd ~/lab0
 git init
@@ -79,7 +79,7 @@ cat > review_archive << 'EOF'
 Елена сохранила отзыв для нового меню
 EOF
 cd ~/lab0
-find ~/lab0
+ls -R ~/lab0
 
 echo "1.4 Численно и символьно устанавливаем права доступа к каталогам и файлам"
 
@@ -97,7 +97,7 @@ chmod u=rwx,g=rx,o= ~/lab0/arcobaleno/kitchen
 chmod 644 ~/lab0/arcobaleno/kitchen/italian_menu
 chmod u=rw,g=r,o= ~/lab0/arcobaleno/kitchen/katya_recipe
 chmod 750 ~/lab0/arcobaleno/office
-chmod u=r--,g=r--,u= ~/lab0/arcobaleno/office/elena_plan
+chmod u=r--,g=r--,o= ~/lab0/arcobaleno/office/elena_plan
 chmod u=rwx,g=rx,o= ~/lab0/arcobaleno/archive
 chmod 640 ~/lab0/arcobaleno/archive/review_archive
 chmod u=rw-,g=r--,o=r-- ~/lab0/critic_visit
@@ -129,8 +129,7 @@ echo "2.3 Работаем с содержимым файлов и переме�
 cat < ~/lab0/claude_monet/kitchen/old_menu > ~/lab0/claude_monet/tasting_room/menu_comparison
 cat < ~/lab0/arcobaleno/kitchen/italian_menu >> ~/lab0/claude_monet/tasting_room/menu_comparison
 cat < ~/lab0/claude_monet/tasting_room/leva_comment >> ~/lab0/critic_visit
-mv ~/lab0/claude_monet/chef_office/barinov_notes ~/lab0/claude_monet/tasting_room
-mv ~/lab0/claude_monet/tasting_room/barinov_notes ~/lab0/claude_monet/tasting_room/chef_verdict
+mv ~/lab0/claude_monet/chef_office/barinov_notes ~/lab0/claude_monet/tasting_room/chef_verdict
 
 echo "2.4 Коммитим изменения и пушим в репозиторий GitHub"
 
@@ -141,12 +140,12 @@ git push origin master
 
 echo "3.1 Выполняем поиск и сортировку файлов, их содержимого"
 
-ls -lR lab0 | grep '^-' | grep -v 'copy' | sort -k5,5nr | head -n 5
+ls -lR | grep '^-' | grep -v 'copy' | sort -k5,5nr | head -n 5
 grep -RihE 'баринов|катя' ~/lab0/claude_monet ~/lab0/arcobaleno | grep -v 'десерт' | sort | head -n 6
 grep -lR 'блюд' ~/lab0/claude_monet/kitchen ~/lab0/arcobaleno/kitchen | wc -l
-cat ./claude_monet/kitchen/*_menu ./arcobaleno/kitchen/*_menu | tail -n 2 | grep -Ei 'десерт|суп' | sort -r
+cat tail -q -n 2 ./claude_monet/kitchen/*_menu ./arcobaleno/kitchen/*_menu | grep -Ei 'десерт|суп' | sort -r
 grep -v 'десерт' ./claude_monet/tasting_room/menu_comparison | sort -r | head -n 4 | wc -w
-ls -ilR | grep '^[0-9]* -.* 2' | sort -k1,1n
+ls -ilR | grep -E '^ *[0-9]+ -[^ ]+ 2 ' | sort -k1,1n
 grep -RihE 'гост|меню' ./claude_monet/chef_office/reviews_copy | grep -v 'Елена' | sort | wc -l
 
 echo "3.2 Удаление файлов, каталогов, ссылок"
@@ -169,7 +168,7 @@ git push origin master
 
 echo "3.4 Просматриваем историю коммитов, состояние дерева и добавляем shell-скрипт"
 
-git log
+git --no-pager log
 ls -lR
 mv ~/script.sh ~/lab0
 git add script.sh
