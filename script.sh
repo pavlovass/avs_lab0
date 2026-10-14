@@ -143,7 +143,7 @@ echo "3.1 Выполняем поиск и сортировку файлов, и
 ls -lR | grep '^-' | grep -v 'copy' | sort -k5,5nr | head -n 5
 grep -RihE 'баринов|катя' ~/lab0/claude_monet ~/lab0/arcobaleno | grep -v 'десерт' | sort | head -n 6
 grep -lR 'блюд' ~/lab0/claude_monet/kitchen ~/lab0/arcobaleno/kitchen | wc -l
-cat tail -q -n 2 ./claude_monet/kitchen/*_menu ./arcobaleno/kitchen/*_menu | grep -Ei 'десерт|суп' | sort -r
+tail -q -n 2 ./claude_monet/kitchen/*_menu ./arcobaleno/kitchen/*_menu | grep -Ei 'десерт|суп' | sort -r
 grep -v 'десерт' ./claude_monet/tasting_room/menu_comparison | sort -r | head -n 4 | wc -w
 ls -ilR | grep -E '^ *[0-9]+ -[^ ]+ 2 ' | sort -k1,1n
 grep -RihE 'гост|меню' ./claude_monet/chef_office/reviews_copy | grep -v 'Елена' | sort | wc -l
