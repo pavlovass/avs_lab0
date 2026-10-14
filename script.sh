@@ -19,61 +19,61 @@ mkdir -p ~/lab0/arcobaleno/archive
 echo "1.3 Наполняем файлы в каталогах"
 
 cd ~/lab0
-cat > critic_visit << 'EOF'
+cat > critic_visit << EOF
 Ресторанный критик посетит оба ресторана
 Сначала он зайдёт в Claude Monet
 После этого отправится в Arcobaleno
 EOF
 cd ~/lab0/claude_monet/kitchen
-cat > old_menu << 'EOF'
+cat > old_menu << EOF
 Утиная ножка от Виктора Баринова
 Луковый суп Claude Monet
 Фирменный салат от шефа
 Десерт Луи с карамелью
 EOF
-cat > duck_recipe << 'EOF'
+cat > duck_recipe << EOF
 Подготовить утиную ножку
 Добавить овощи и соус от Баринова
 Перед подачей проверить температуру
 EOF
 cd ~/lab0/claude_monet/chef_office
-cat > barinov_notes << 'EOF'
+cat > barinov_notes << EOF
 Не повторять блюда конкурентов
 Катю допустить к общей дегустации
 Лёва записывает замечания шефа
 Последнее решение принимает Баринов
 EOF
 cd ~/lab0/claude_monet/tasting_room
-cat > tasting_scores << 'EOF'
+cat > tasting_scores << EOF
 Блюдо Баринова получило девять баллов
 Паста Кати получила восемь баллов
 Десерт Луи получил десять баллов
 EOF
-cat > leva_comment << 'EOF'
+cat > leva_comment << EOF
 Лёва проверил порядок подачи блюд
 Меню обоих ресторанов готово к сравнению
 Результаты переданы Виктору Петровичу
 EOF
 cd ~/lab0/arcobaleno/kitchen
-cat > italian_menu << 'EOF'
+cat > italian_menu << EOF
 Домашняя паста от Елены Павловны
 Ризотто с белыми грибами
 Итальянский рыбный суп
 Десерт по рецепту Кати
 EOF
-cat > katya_recipe << 'EOF'
+cat > katya_recipe << EOF
 Катя приготовила молекулярную закуску
 Для блюда использованы знакомые продукты
 Елена Павловна одобрила новую подачу
 EOF
 cd ~/lab0/arcobaleno/office
-cat > elena_plan << 'EOF'
+cat > elena_plan << EOF
 Елена Павловна встречает критика
 Катя представляет новое блюдо
 Команда Arcobaleno готовит итальянское меню
 EOF
 cd ~/lab0/arcobaleno/archive 
-cat > review_archive << 'EOF'
+cat > review_archive << EOF
 Критик похвалил пасту в прошлый визит
 Гости отметили спокойную работу кухни
 Елена сохранила отзыв для нового меню
